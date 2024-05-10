@@ -23,7 +23,7 @@ function Stopwatch() {
     };
 
     const handleStartStop = () => {
-        setIsRunning(!isRunning);
+      setIsRunning(prevIsRunning => !prevIsRunning);
     };
 
     const handleReset = () => {
