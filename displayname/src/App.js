@@ -18,8 +18,7 @@ function  Displayname() {
                setIssubmitted(true);
          }
          else{
-            setgetfirst("");
-            setgetlast("");
+            
             setIssubmitted(false);
          }
          
@@ -52,10 +51,11 @@ function  Displayname() {
             </form>
 
             <div>
-                {issubmitted && getfirst !== "" && getlast !== "" &&(
+            {issubmitted && (name.trim() !== "" && lastname.trim() !== "" ? (
                     <div>Full Name: {getfirst} {getlast}</div>
-                )
-                }
+                ) : (
+                    <div>Please fill out both first name and last name.</div>
+                ))}
                 
             </div>
         </div>
