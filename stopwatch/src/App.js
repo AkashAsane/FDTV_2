@@ -6,41 +6,42 @@ function Stopwatch() {
     const [isRunning, setIsRunning] = useState(false);
 
     useEffect(() => {
-        let interval;
+        let intervalid;
         if (isRunning) {
-            interval = setInterval(() => {
+            intervalid = setInterval(() => {
                 setTime((prevTime) => prevTime + 1);
             }, 1000);
         }
         else{
-           clearInterval(interval); 
+           clearInterval(intervalid); 
         
         }
 
-        return () => clearInterval(interval);
+        return () => clearInterval(intervalid);
     }, [isRunning]);
 
     const formatTime = (timeInSeconds) => {
-        const minutes = Math.floor(timeInSeconds / 60);
-        const seconds = timeInSeconds % 60;
-        return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+        const minutes = Math.floor(timeInSeconds / 60)
+        const seconds = timeInSeconds % 60
+        return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`
     };
 
     const handleStartStop = () => {
-      setIsRunning(prevIsRunning => !prevIsRunning);
-    };
+      setIsRunning( prevIsRunning => !prevIsRunning)
+    }
+
 
     const handleReset = () => {
-        setTime(0);
-        setIsRunning(false);
+        setTime(0)
+        setIsRunning(false)
     };
 
     return (
         <div>
             <h1>Stopwatch</h1>
-            <div>Time:{formatTime(time)}</div>
+            <div>Time: {formatTime(time)}</div>
             <div>
-                <button onClick={handleStartStop}>{isRunning ? 'Stop' : 'Start'}</button>
+                <button onClick={handleStartStop}>{isRunning ? "Stop" : "Start"}</button>
                 <button onClick={handleReset}>Reset</button>
             </div>
         </div>
