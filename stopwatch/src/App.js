@@ -43,7 +43,7 @@ function Stopwatch() {
     return(
       <>
          <h1>Stopwatch</h1>
-         <h3>{createTime(time)}</h3>
+         <h3>Time: {createTime(time)}</h3>
           { !isrunning ?(
             <button onClick={handlestart}>Start</button>
           ):(
