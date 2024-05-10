@@ -10,9 +10,13 @@ function  Displayname() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        setIsSubmitted(true);
-        setGetFirst(name);
-        setGetLast(lastname);
+        if (name.trim() !== "" || lastname.trim() !== "") {
+            setIsSubmitted(true);
+            setGetFirst(name);
+            setGetLast(lastname);
+        } else {
+            setIsSubmitted(false);
+        }
     }
 
     return (
