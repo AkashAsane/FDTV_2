@@ -48,7 +48,7 @@ function  Displayname() {
 
             <div>
                 {issubmitted &&(
-                    <div>Full Name:{getfirst} {getlast}</div>
+                    <div>Full Name: {getfirst} {getlast}</div>
                 )
                 }
                 
