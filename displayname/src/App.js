@@ -34,7 +34,7 @@ function  Displayname() {
                   type='text'
                   value={name}
                   onChange={(e)=>setName(e.target.value)}
-                  required
+                  
                 />
                 </div>
                 <div>
@@ -43,7 +43,7 @@ function  Displayname() {
                   type='text'
                   value={lastname}
                   onChange={(e)=>setLastname(e.target.value)}
-                  required
+                  
                 />
                 </div>
                 <button type='submit'>Submit</button>
