@@ -9,8 +9,12 @@ function Stopwatch() {
         let interval;
         if (isRunning) {
             interval = setInterval(() => {
-                setTime(prevTime => prevTime + 1);
+                setTime((prevTime) => prevTime + 1);
             }, 1000);
+        }
+        else{
+           clearInterval(interval); 
+        
         }
 
         return () => clearInterval(interval);
