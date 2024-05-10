@@ -10,13 +10,9 @@ function  Displayname() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        if (name.trim() !== "" && lastname.trim() !== "") {
-            setGetFirst(name);
-            setGetLast(lastname);
-            setIsSubmitted(true);
-        } else {
-            setIsSubmitted(false);
-        }
+        setIsSubmitted(true);
+        setGetFirst(name);
+        setGetLast(lastname);
     }
 
     return (
@@ -43,12 +39,8 @@ function  Displayname() {
             </form>
 
             <div>
-                {isSubmitted ? (
-                    (name.trim() !== "" && lastname.trim() !== "") ? (
-                        <div>Full Name: {getfirst} {getlast}</div>
-                    ) : (
-                        <div>Please fill out both first name and last name.</div>
-                    )
+                {isSubmitted && (name.trim() !== "" || lastname.trim() !== "") ? (
+                    <div>Full Name: {getfirst} {getlast}</div>
                 ) : null}
             </div>
         </div>
