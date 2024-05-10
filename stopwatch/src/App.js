@@ -1,6 +1,5 @@
 import React from 'react';
 import { useEffect,useState } from 'react';
-import axios from 'axios';
 import './App.css';
 
 function Stopwatch() {
@@ -20,13 +19,14 @@ function Stopwatch() {
           return ()=>clearInterval(interval)
     },[isrunning]);
 
+    const timeformat=(timesec)=>{
+      const minutes= Math.floor(timesec/60);
+      const seconds= timesec%60;
+      return `${minutes}:${seconds<10 ? "0" : " "} ${seconds}`;
+   }
      
-      const  handlestart=()=>{
-        setisrunning(true)
-      }
-
-      const handlestop=()=>{
-        setisrunning(false);
+      const  handlestartstop=()=>{
+        setisrunning(!isrunning)
       }
 
       const handlereset=()=>{
@@ -34,24 +34,18 @@ function Stopwatch() {
         setisrunning(false)
       }
       
-      const createTime=(timesec)=>{
-         const min= Math.floor(timesec/60);
-         const sec= timesec%60;
-         return `${min}:${sec<10 ? "0" : ""} ${sec}`;
-      }
+     
 
     return(
-      <>
+         <div>
          <h1>Stopwatch</h1>
-         <h3>Time: {createTime(time)}</h3>
-          { !isrunning ?(
-            <button onClick={handlestart}>Start</button>
-          ):(
-            <button onClick={handlestop}>Stop</button>
-          )}
-          <button onClick={handlereset}>reset</button>
-          
-      </>
+         <div>Time: {timeformat(time)}</div>
+          <div>
+          <button onClick={handlestartstop}>{isrunning ? "Stop" : "Start"}</button>
+          <button onClick={handlereset}>Reset</button>
+          </div>
+        </div>
+      
     )
 }
 
