@@ -17,6 +17,9 @@ function  Displayname() {
                setgetlast(lastname);
                setIssubmitted(true);
          }
+         else{
+            setIssubmitted(false);
+         }
          
     }
          
