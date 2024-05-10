@@ -11,12 +11,16 @@ function  Displayname() {
 
     const  handlesubmit=(event)=>{
         event.preventDefault();
-         if(name.length !==0)
-         {
-               setgetfirst(name);
-               setgetlast(lastname);
-               setIssubmitted(true);
-         }
+        if (name.trim() !== "" && lastname.trim() !== "") {
+            setgetfirst(name);
+            setgetlast(lastname);
+            setIssubmitted(true);
+            
+            setName("");
+            setLastname("");
+        } else {
+            setIssubmitted(false); 
+        }
          
     }
          
@@ -50,7 +54,6 @@ function  Displayname() {
                 {issubmitted &&(
                     <h4>Full Name:{getfirst} {getlast}</h4>
                 )
-                    
                 }
                 
             </div>
